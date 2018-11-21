@@ -1,7 +1,12 @@
 <h1>All reviews !!</h1>
+
+<p><%= link_to "Create a new review for this restaurant", new_restaurant_review_path,  class: "btn btn-warning" %></p>
+
 <ul>
 <% @reviews.each do |review| %>
-  <li><%= review.content  %></li>
-  <li><%= review.rating %></li>
+  <li><%= review.content  %> => <%= review.rating%></li>
+
   <% end %>
 </ul>
+
+<%= link_to "back to list", restaurants_path,  class: "btn btn-primary" %>

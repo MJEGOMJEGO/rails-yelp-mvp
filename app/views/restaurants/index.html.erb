@@ -1,12 +1,13 @@
 
 
 <h1>All restaurants !!</h1>
-<%= link_to "Create a new Restaurant", new_restaurant_path %>
-<ul>
+<%= link_to "Create a new Restaurant", new_restaurant_path, class: "btn btn-warning" %>
+<ul class="list-style = none">
 <% @restaurants.each do |restaurant| %>
   <li><%= restaurant.name  %>
 </li>
-<li><%= link_to "See details", restaurant_path(restaurant), class: "btn btn-primary"%></li>
-<li><%= link_to "See reviews", restaurant_reviews_path(restaurant), class: "btn btn-warning"%></li>
+<p><%= link_to "See details", restaurant_path(restaurant), class: "btn btn-primary"%> <%= link_to "See reviews", restaurant_reviews_path(restaurant), class: "btn btn-success"%><%= link_to restaurant_path(restaurant),  method: :delete, data: { confirm: 'are you sure?' } do%> Delete =>
+    <i class="fas fa-trash-alt trash"></i>
+    <% end %></p>
   <% end %>
 </ul>
